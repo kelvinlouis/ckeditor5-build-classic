@@ -7,32 +7,40 @@
 import ClassicEditorBase from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
 
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
+import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
-import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
-import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
+import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
+import Font from '@ckeditor/ckeditor5-font/src/font';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading';
+import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight';
 import Image from '@ckeditor/ckeditor5-image/src/image';
 import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle';
 import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar';
 import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload';
+import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
 import Link from '@ckeditor/ckeditor5-link/src/link';
 import List from '@ckeditor/ckeditor5-list/src/list';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
+import Strikethrough from '@ckeditor/ckeditor5-basic-styles/src/strikethrough';
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
+import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
 // Plugins to include in the build.
 ClassicEditor.builtinPlugins = [
 	Essentials,
+	Alignment,
 	Autoformat,
 	Bold,
 	Italic,
 	BlockQuote,
+	Font,
 	Heading,
+	Highlight,
 	Image,
 	ImageStyle,
 	ImageToolbar,
@@ -41,8 +49,10 @@ ClassicEditor.builtinPlugins = [
 	List,
 	Paragraph,
 	PasteFromOffice,
+	Strikethrough,
 	Table,
-	TableToolbar
+	TableToolbar,
+	Underline,
 ];
 
 // Editor configuration.
@@ -51,18 +61,37 @@ ClassicEditor.defaultConfig = {
 		items: [
 			'heading',
 			'|',
+			'fontSize',
+			'fontColor',
+			'highlight',
 			'bold',
 			'italic',
-			'link',
+			'underline',
+			'strikethrough',
+			'|',
+			'alignment',
 			'bulletedList',
 			'numberedList',
+			'|',
+			'link',
 			'imageUpload',
 			'blockQuote',
 			'insertTable',
+			'|',
 			'undo',
 			'redo'
 		]
 	},
+	alignment: {
+		options: [ 'left', 'center', 'right' ]
+	},
+	// fontSize: {
+	// 	options: [
+	// 		'tiny',
+	// 		'default',
+	// 		'big'
+	// 	]
+	// },
 	image: {
 		toolbar: [
 			'imageStyle:full',
